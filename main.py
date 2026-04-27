@@ -31,8 +31,8 @@ def main():
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
             'Accept': 'application/pdf,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
             'Accept-Language': 'en-US,en;q=0.5',
-            'Referer': 'https://google.com', # Sometimes servers check where you came from
-            'DNT': '1', # Do Not Track
+            'Referer': 'https://google.com', 
+            'DNT': '1', 
         }
 
         request = urllib.request.Request(RSS_URL, headers=headers)
@@ -52,7 +52,7 @@ def main():
     if xml_content:
         circulars = parse_rss_feed(xml_content, PDF_DIR)
     else:
-        # Use sample data from the fetched content
+
         circulars = []
     
     print(f"\nFound {len(circulars)} circular items")
@@ -82,7 +82,6 @@ def main():
             if not filename.endswith(".pdf"):
                 filename = f"circular_{i+1}.pdf"
         
-        # Ensure .pdf extension
         if not filename.lower().endswith(".pdf"):
             filename += ".pdf"
         
