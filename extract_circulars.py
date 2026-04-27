@@ -61,7 +61,7 @@ def parse_rss_feed(xml_content, PDF_DIR):
             "guid": guid.strip() if guid else "",
             "description": description.strip() if description else "",
             "date": date_str,
-            "local_pdf_path": os.path.join(PDF_DIR, clean_filename(guid) + '.pdf') if link.endswith('.pdf') else ''
+            "local_pdf_path": os.path.join(PDF_DIR, clean_filename(title) + '.pdf') if link.endswith('.pdf') else ''
         }
         circulars.append(circular)
     
